@@ -1,0 +1,79 @@
+<%- include ('header') -%> 
+<style>
+    .login-box .bklmj {
+        background-image: url('static/imgs/lg.jpg');
+        
+    }
+</style>
+<div class="container-fluid ">
+        
+    <div class=" no-pdding login-box">
+        <div class="row no-margin w-100 bklmj">
+            <div class="col-lg-6 col-md-6 log-det">
+
+                
+                
+                <h2>Admin login</h2>
+                
+               
+                
+
+                
+                <div class="text-box-cont">
+                    <form action="/signinprof" method="post">
+                        <% if (!existe) { %>
+                            <small style="color: red;">invalid email</small>
+                        <% } %>
+                    <div class="input-group mb-3">
+                       
+                        <input type="text" class="form-control" placeholder="email" aria-label="Username" aria-describedby="basic-addon1" name="email" required>
+                    </div>
+                    <% if (!existe) { %>
+                        <small style="color: red;">invalid password</small>
+                    <% } %>
+
+                     <div class="input-group mb-3">
+                        
+                        <input type="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" name="password" required>
+                    </div>
+                    
+                    <div class="row no-margin">
+                        <p class="forget-p">Forget Password ?</p>
+                    </div>
+                    <div class="right-bkij mb-3">
+                        <button class="btn btn-success btn-round">sign In</button>
+                    </div>
+
+                </form>
+                    
+                    <br> 
+                    <!-- <div class="row linkoi">
+                      <div class="col-sm-5">
+                          <p>Or login with</p>
+                      </div>
+                       <div class="col-sm-7">
+                           <ul>
+                                <li><i class="fab fa-facebook-f "></i></li>
+                                <li><i class="fab fa-twitter"></i></li>
+                                
+                            </ul>
+                       </div>
+                    </div>  -->
+                </div>
+                
+                 
+
+            </div>
+            <!-- <div class="col-lg-6 col-md-6 box-de">
+                <div class="ditk-inf">
+                    <h2 class="w-100">Welcome Back </h2>
+                    <p>Simply Create your account by <br> clicking the Signup Button</p>
+                <a href="/signup">
+                    <button type="button" class="btn btn-outline-light">Sign Up</button>
+                </a>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div> 
+<%- include ('footer') -%> 
