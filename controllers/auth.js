@@ -1,10 +1,8 @@
-
 const user_exist = (user, this_user) => {
     (user.find()).forEach(individu => {
-        if (this_user.email == individu.email){
+        if (this_user.email == individu.email) {
             return true;
-        }
-        else{
+        } else {
             return false;
         }
     });

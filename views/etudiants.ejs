@@ -11,7 +11,7 @@
     <meta name="description"
         content="Material Pro Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>Material Pro Lite Template by WrapPixel</title>
+    <title>Etudiants</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/materialpro-lite/" />
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="static1/images/favicon.png">
@@ -48,30 +48,19 @@
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <a class="navbar-brand ms-4" href="index.html">
+                    <a class="navbar-brand ms-4" href="index">
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="static1/images/tri_logo.png" alt="homepage" class="dark-logo" style="width: 100%;"/>
-
+                            <img src="static1/images/tri_logo.png" alt="homepage" class="dark-logo" style="width: 27%; height: 10%;"/>
+                            &nbsp;&nbsp;&nbsp;<span class="text-uppercase font-weight-bold" style="font-size:130% ;">ENSAJ</span><span style="font-size:130%;color: rgb(171, 196, 226);">TRI</span>&nbsp;<i class="fa-solid fa-seedling"></i>
                         </b>
+                        
                         <!--End Logo icon -->
                         <!-- Logo text -->
-                        <span class="logo-text">
-                            <!-- dark Logo text -->
-                            <img src="static1/images/logo-light-text.png" alt="homepage" class="dark-logo" />
-
-                        </span>
+                        
                     </a>
-                    <!-- ============================================================== -->
-                    <!-- End Logo -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <!-- toggle and nav items -->
-                    <!-- ============================================================== -->
-                    <a class="nav-toggler waves-effect waves-light text-white d-block d-md-none"
-                        href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -108,7 +97,7 @@
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="static1/images/myImage2.png" alt="user" class="profile-pic me-2">
+                                <img src="static/uploads/images/<%= ourClient.image %>" alt="user" class="profile-pic me-2"><%= ourClient.prenom + " " + ourClient.nom %> 
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown"></ul>
                         </li>
@@ -123,67 +112,80 @@
       <!-- Left Sidebar - style you can find in sidebar.scss  -->
       <!-- ============================================================== -->
       <aside class="left-sidebar" data-sidebarbg="skin6">
-          <!-- Sidebar scroll-->
-          <div class="scroll-sidebar">
-              <!-- Sidebar navigation-->
-              <nav class="sidebar-nav">
-                  <ul id="sidebarnav">
-                      <!-- User Profile-->
-                      <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                              href="index.html" aria-expanded="false"><i class="mdi me-2 mdi-gauge"></i><span
-                                  class="hide-menu">Dashboard</span></a></li>
-                      <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                              href="pages-profile.html" aria-expanded="false">
-                              <i class="mdi me-2 mdi-account-check"></i><span class="hide-menu">Profile</span></a>
-                      </li>
-                      <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                              href="table-basic.html" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
-                                  class="hide-menu">Table</span></a></li>
-                      <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                              href="icon-material.html" aria-expanded="false"><i
-                                  class="mdi me-2 mdi-emoticon"></i><span class="hide-menu">Icon</span></a></li>
-                      <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                              href="map-google.html" aria-expanded="false"><i class="mdi me-2 mdi-earth"></i><span
-                                  class="hide-menu">Google Map</span></a></li>
-                      <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                              href="pages-blank.html" aria-expanded="false"><i
-                                  class="mdi me-2 mdi-book-open-variant"></i><span class="hide-menu">Blank</span></a>
-                      </li>
-                      <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                              href="pages-error-404.html" aria-expanded="false"><i class="mdi me-2 mdi-help-circle"></i><span
-                                  class="hide-menu">Error 404</span></a>
-                      </li>
-                      <li class="text-center p-20 upgrade-btn">
-                          <a href="https://www.wrappixel.com/templates/materialpro/"
-                              class="btn btn-warning text-white mt-4" target="_blank">Upgrade to
-                              Pro</a>
-                      </li>
-                  </ul>
+        <!-- Sidebar scroll-->
+        <div class="scroll-sidebar">
+            <!-- Sidebar navigation-->
+            <nav class="sidebar-nav">
+                <br>
+                <ul id="sidebarnav">
+                    <!-- User Profile-->
+                    <% switch (ourClient.role) {
+                        case 'etudiant' : %>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="./index" aria-expanded="false">
+                            <i class="fa-regular fa-user"></i> <span class="hide-menu">&nbsp;&nbsp;&nbsp;Mon Profile</span></a>
+                        </li>
 
-              </nav>
-              <!-- End Sidebar navigation -->
-          </div>
-          <!-- End Sidebar scroll-->
-          <div class="sidebar-footer">
-              <div class="row">
-                  <div class="col-4 link-wrap">
-                      <!-- item-->
-                      <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Settings"><i
-                              class="ti-settings"></i></a>
-                  </div>
-                  <div class="col-4 link-wrap">
-                      <!-- item-->
-                      <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i
-                              class="mdi mdi-gmail"></i></a>
-                  </div>
-                  <div class="col-4 link-wrap">
-                      <!-- item-->
-                      <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i
-                              class="mdi mdi-power"></i></a>
-                  </div>
-              </div>
-          </div>
-      </aside>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="./consulternote" aria-expanded="false"><i class="fa-solid fa-eye"></i><span class="hide-menu">&nbsp;&nbsp;&nbsp;Consulter les notes</span></a>
+                        </li>
+
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="./suivredemande" aria-expanded="false"><i class="fa-solid fa-file-circle-question"></i><span class="hide-menu">&nbsp;&nbsp;&nbsp;Suivre demandes</span></a></li>
+
+                                <% break;
+                        
+                        case 'professeur' : %>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="./index" aria-expanded="false">
+                            <i class="fa-regular fa-user"></i> <span class="hide-menu">&nbsp;&nbsp;&nbsp;Mon Profile</span></a>
+                        </li>
+
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="./notes" aria-expanded="false"><i class="fa-solid fa-square-poll-vertical"></i><span
+                                class="hide-menu">&nbsp;&nbsp;&nbsp;Notes</span></a></li>
+
+                                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                        href="./listedemandes" aria-expanded="false"><i class="fa-solid fa-list-check"></i><span
+                            class="hide-menu">&nbsp;&nbsp;&nbsp;Liste des demandes</span></a>
+                                <% break;
+                        
+                        case 'Cordinateur' : %>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="./dash" aria-expanded="false">
+                                <i class="fa-solid fa-chart-line"></i> <span class="hide-menu">&nbsp;&nbsp;&nbsp;Tableau de bord</span></a>
+                            </li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="./index" aria-expanded="false">
+                            <i class="fa-regular fa-user"></i> <span class="hide-menu">&nbsp;&nbsp;&nbsp;Mon Profile</span></a>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="./profs" aria-expanded="false"><i class="fa-solid fa-person-chalkboard"></i><span
+                                class="hide-menu">&nbsp;&nbsp;&nbsp;Professeurs</span></a></li>
+                                
+                        <li class="sidebar-item"> <a class="active waves-effect waves-dark sidebar-link"
+                            href="./etudiants" aria-expanded="false"><i class="fa-solid fa-graduation-cap"></i><span
+                                class="hide-menu">&nbsp;&nbsp;&nbsp;Etudiants</span></a></li>
+                                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="./modules" aria-expanded="false"><i class="fa-solid fa-book-open-reader"></i><span
+                                class="hide-menu">&nbsp;&nbsp;&nbsp;Modules</span></a>
+                    </li>
+                                <% break;
+                        } %>
+
+              </ul>
+
+            </nav>
+            <!-- End Sidebar navigation -->
+        </div>
+        <!-- End Sidebar scroll-->
+        <div class="sidebar-footer">
+            <center><div>
+                    <img src="static1/images/ensajlogo.png" alt="" style="width:50%;height:50%;">
+                </div></center>
+        </div>
+        
+    </aside>
       <!-- ============================================================== -->
       <!-- End Left Sidebar - style you can find in sidebar.scss  -->
       <!-- ============================================================== -->
@@ -197,23 +199,23 @@
           <div class="page-breadcrumb">
               <div class="row align-items-center">
                   <div class="col-md-6 col-8 align-self-center">
-                      <h3 class="page-title mb-0 p-0">Table</h3>
-                      <div class="d-flex align-items-center">
+                      <h3 class="page-title mb-0 p-0">Liste des étudiants</h3>
+                      <!-- <div class="d-flex align-items-center">
                           <nav aria-label="breadcrumb">
                               <ol class="breadcrumb">
                                   <li class="breadcrumb-item"><a href="#">Home</a></li>
                                   <li class="breadcrumb-item active" aria-current="page">Table</li>
                               </ol>
                           </nav>
-                      </div>
+                      </div> -->
                   </div>
-                  <div class="col-md-6 col-4 align-self-center">
+                  <!-- <div class="col-md-6 col-4 align-self-center">
                       <div class="text-end upgrade-btn">
                           <a href="https://www.wrappixel.com/templates/materialpro/"
                               class="btn btn-danger d-none d-md-inline-block text-white" target="_blank">Upgrade to
                               Pro</a>
                       </div>
-                  </div>
+                  </div> -->
               </div>
           </div>
           <!-- ============================================================== -->
@@ -236,64 +238,18 @@
                               <h4 class="card-title">2ITE1</h4>
                               <h6 class="card-subtitle">liste des professeurs<code> </code> </h6>
 
+                        <div class="row text-center">
+                            <% profs.forEach(prof => { %>
+                                <% if (prof.classes.includes("2ite1")) { %>
+                                    <div class="col-md-1 mb-4">
+                                        <img class="rounded-circle" alt="100x100"  title="<%= prof.prenom + " " + prof.nom %> " src="static/uploads/images/<%= prof.image %>" 
+                                          data-holder-rendered="true" style="width: 70px;height: 70px;">
+                                      </div>
+                                <% } %>
+                            <% }) %>
+                        </div>
 
-
-
-                              <div class="row text-center">
-                  <!--Grid column-->
-                                <div class="col-md-1 mb-4">
-                                  <img class="rounded-circle" alt="100x100" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg"
-                                    data-holder-rendered="true" style="width: 70px;height: 70px;">
-                                </div>
-                                <!--Grid column-->
-                          
-                                <!--Grid column-->
-                                <div class="col-md-1 mb-4">
-                                  <img class="rounded-circle z-depth-2" alt="100x100" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg"
-                                    data-holder-rendered="true" style="width: 70px;height: 70px;">
-                                </div>
-                                <!--Grid column-->
-
-
-                                <!--Grid column-->
-                                <div class="col-md-1 mb-4">
-                                  <img class="rounded-circle z-depth-2" alt="100x100" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg"
-                                    data-holder-rendered="true" style="width: 70px;height: 70px;">
-                                </div>
-                                <!--Grid column-->
-
-                                <!--Grid column-->
-                                <div class="col-md-1 mb-4">
-                                  <img class="rounded-circle z-depth-2" alt="100x100" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg"
-                                    data-holder-rendered="true" style="width: 70px;height: 70px;">
-                                </div>
-                                <!--Grid column-->
-
-
-                                <!--Grid column-->
-                                <div class="col-md-1 mb-4">
-                                  <img class="rounded-circle z-depth-2" alt="100x100" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg"
-                                    data-holder-rendered="true" style="width: 70px;height: 70px;">
-                                </div>
-                                <!--Grid column-->
-
-
-                                <!--Grid column-->
-                                <div class="col-md-1 mb-4">
-                                  <img class="rounded-circle z-depth-2" alt="100x100" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg"
-                                    data-holder-rendered="true" style="width: 70px;height: 70px;">
-                                </div>
-                                <!--Grid column-->
-
-
-                                <!--Grid column-->
-                                <div class="col-md-1 mb-4">
-                                  <img class="rounded-circle z-depth-2" alt="100x100" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg"
-                                    data-holder-rendered="true" style="width: 70px;height: 70px;">
-                                </div>
-                                <!--Grid column-->
-                               </div>
-                              <!--Grid row-->
+                             
 
 
 
@@ -317,14 +273,31 @@
                                        
                                          
                                         <% person.forEach(student => { %>
-                                         
-                                        
-                                          <tr>
-                                            <td><img src="/static1/images/myImage2.png" class="avatar" alt="Avatar" style="width: 50px; height: 50px;"></td>
-                                              <td><%= student.nom %> </td>
-                                              <td>12.53</td>
-                                              <td>Validé</td>
+                                            <% if (student.filiere == "2ite1") { %>
+                                                <span style="display: none;"> <%- noteMoy = 0 %> </span>
+                                                <span style="display: none;"><%- i = 0 %> </span>
+                                            <% marks.forEach(mark => { %>
+                                                <% if (mark.etudiant == (student.prenom + " " + student.nom)) { %>
+                                                    <span style="display: none;"> <%- noteMoy = noteMoy + mark.note %> </span>
+                                                    <span style="display: none;"> <%- i = i + 1 %>  </span>
+                                                <% } %>
+                                            <% }) %>
+                                           <tr> 
+                                            <td><img src="static/uploads/images/<%= student.image %>" class="rounded-circle" alt="Avatar" style="width: 50px; height: 50px;"></td>
+                                              <td><%= student.prenom + " " + student.nom%>  </td>
+                                              <% if (noteMoy == 0) { %>
+                                                <td><%= noteMoy %> </td>
+                                                <% } else { %>
+                                                    <td><%= Math.round((noteMoy / i) * 100) / 100 %> </td>
+                                              <% } %>
+                                              <% if ((noteMoy / i) < 12 | (noteMoy == 0)) { %>
+                                                <td style="color: rgb(231, 80, 80);">Non Validé</td>
+                                            <% } else { %>
+                                                <td style="color: rgb(66, 168, 66);">Validé</td>
+                                              <% } %>
+                                              
                                           </tr>
+                                          <% } %>
                                         <% }) %>
 
                                          
@@ -341,60 +314,78 @@
                   <div><br></div>
               <!-- </div> -->
 
-
               <section id="mysection1">
                 <div class="col-sm-12">
                   <div class="card">
                       <div class="card-body">
                           <h4 class="card-title">2ITE2</h4>
-                          <h6 class="card-subtitle">Add class <code>.table</code></h6>
+                          <h6 class="card-subtitle">liste des professeurs<code> </code> </h6>
+
+
+
+
+                          <div class="row text-center">
+                            <% profs.forEach(prof => { %>
+                                <% if (prof.classes.includes("2ite2")) { %>
+                                    <div class="col-md-1 mb-4">
+                                        <img class="rounded-circle" alt="100x100"  title="<%= prof.prenom + " " + prof.nom %> " src="static/uploads/images/<%= prof.image %>" 
+                                          data-holder-rendered="true" style="width: 70px;height: 70px;">
+                                      </div>
+                                <% } %>
+                            <% }) %>
+                        </div>
+
+
+
+
+
                           <div class="table-responsive">
                               <table class="table user-table">
                                   <thead>
                                       <tr>
-                                          <th class="border-top-0">#</th>
-                                          <th class="border-top-0">First Name</th>
-                                          <th class="border-top-0">Last Name</th>
-                                          <th class="border-top-0">Username</th>
+                                          <th class="border-top-0">Image</th>
+                                          <th class="border-top-0">Nom complet</th>
+                                          <th class="border-top-0">Note générale</th>
+                                          <th class="border-top-0">Etat</th>
                                       </tr>
                                   </thead>
+                                  
                                   <tbody>
-                                      <tr>
-                                          <td>1</td>
-                                          <td>Deshmukh</td>
-                                          <td>Prohaska</td>
-                                          <td>@Genelia</td>
+
+                                   
+                                    
+                                   
+                                     
+                                    <% person.forEach(student => { %>
+                                        <% if (student.filiere == "2ite2") { %>
+                                            <span style="display: none;"> <%- noteMoy = 0 %> </span>
+                                            <span style="display: none;"><%- i = 0 %> </span>
+                                        <% marks.forEach(mark => { %>
+                                            <% if (mark.etudiant == (student.prenom + " " + student.nom)) { %>
+                                                <span style="display: none;"> <%- noteMoy = noteMoy + mark.note %> </span>
+                                                <span style="display: none;"> <%- i = i + 1 %>  </span>
+                                            <% } %>
+                                        <% }) %>
+                                       <tr> 
+                                        <td><img src="static/uploads/images/<%= student.image %>" class="rounded-circle" alt="Avatar" style="width: 50px; height: 50px;"></td>
+                                          <td><%= student.prenom + " " + student.nom%>  </td>
+                                          <% if (noteMoy == 0) { %>
+                                            <td><%= noteMoy %> </td>
+                                            <% } else { %>
+                                                <td><%= Math.round((noteMoy / i) * 100) / 100 %> </td>
+                                          <% } %>
+                                          <% if ((noteMoy / i) < 12 | (noteMoy == 0)) { %>
+                                            <td style="color: rgb(231, 80, 80);">Non Validé</td>
+                                        <% } else { %>
+                                            <td style="color: rgb(66, 168, 66);">Validé</td>
+                                          <% } %>
+                                          
                                       </tr>
-                                      <tr>
-                                          <td>2</td>
-                                          <td>Deshmukh</td>
-                                          <td>Gaylord</td>
-                                          <td>@Ritesh</td>
-                                      </tr>
-                                      <tr>
-                                          <td>3</td>
-                                          <td>Sanghani</td>
-                                          <td>Gusikowski</td>
-                                          <td>@Govinda</td>
-                                      </tr>
-                                      <tr>
-                                          <td>4</td>
-                                          <td>Roshan</td>
-                                          <td>Rogahn</td>
-                                          <td>@Hritik</td>
-                                      </tr>
-                                      <tr>
-                                          <td>5</td>
-                                          <td>Joshi</td>
-                                          <td>Hickle</td>
-                                          <td>@Maruti</td>
-                                      </tr>
-                                      <tr>
-                                          <td>6</td>
-                                          <td>Nigam</td>
-                                          <td>Eichmann</td>
-                                          <td>@Sonu</td>
-                                      </tr>
+                                      <% } %>
+                                    <% }) %>
+
+                                     
+                                      
                                   </tbody>
                               </table>
                           </div>
@@ -403,141 +394,177 @@
               </div>
               </section>
               <br />
-              <button class="btn btn-outline-primary" onclick="toggle(this, 'mysection1', '2ITE2')">▷ Masquer la liste 2ITE2</button>
+              <button class="btn btn-outline-primary" onclick="toggle(this, 'mysection1', '2ITE2')">▷ Masquer la liste - 2ITE2</button>
               <div><br></div>
-          <!-- </div> -->
+
+        
+              <section id="mysection2">
+                <div class="col-sm-12">
+                  <div class="card">
+                      <div class="card-body">
+                          <h4 class="card-title">ISIC1</h4>
+                          <h6 class="card-subtitle">liste des professeurs<code> </code> </h6>
 
 
 
-          <section id="mysection2">
-            <div class="col-sm-12">
-              <div class="card">
-                  <div class="card-body">
-                      <h4 class="card-title">ISIC1</h4>
-                      <h6 class="card-subtitle">Add class <code>.table</code></h6>
-                      <div class="table-responsive">
-                          <table class="table user-table">
-                              <thead>
-                                  <tr>
-                                      <th class="border-top-0">#</th>
-                                      <th class="border-top-0">First Name</th>
-                                      <th class="border-top-0">Last Name</th>
-                                      <th class="border-top-0">Username</th>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  <tr>
-                                      <td>1</td>
-                                      <td>Deshmukh</td>
-                                      <td>Prohaska</td>
-                                      <td>@Genelia</td>
-                                  </tr>
-                                  <tr>
-                                      <td>2</td>
-                                      <td>Deshmukh</td>
-                                      <td>Gaylord</td>
-                                      <td>@Ritesh</td>
-                                  </tr>
-                                  <tr>
-                                      <td>3</td>
-                                      <td>Sanghani</td>
-                                      <td>Gusikowski</td>
-                                      <td>@Govinda</td>
-                                  </tr>
-                                  <tr>
-                                      <td>4</td>
-                                      <td>Roshan</td>
-                                      <td>Rogahn</td>
-                                      <td>@Hritik</td>
-                                  </tr>
-                                  <tr>
-                                      <td>5</td>
-                                      <td>Joshi</td>
-                                      <td>Hickle</td>
-                                      <td>@Maruti</td>
-                                  </tr>
-                                  <tr>
-                                      <td>6</td>
-                                      <td>Nigam</td>
-                                      <td>Eichmann</td>
-                                      <td>@Sonu</td>
-                                  </tr>
-                              </tbody>
-                          </table>
+                          <div class="row text-center">
+                            <% profs.forEach(prof => { %>
+                                <% if (prof.classes.includes("isic1")) { %>
+                                    <div class="col-md-1 mb-4">
+                                        <img class="rounded-circle" alt="100x100"  title="<%= prof.prenom + " " + prof.nom %> " src="static/uploads/images/<%= prof.image %>" 
+                                          data-holder-rendered="true" style="width: 70px;height: 70px;">
+                                      </div>
+                                <% } %>
+                            <% }) %>
+                        </div>
+                          
+
+
+
+
+
+                          <div class="table-responsive">
+                              <table class="table user-table">
+                                  <thead>
+                                      <tr>
+                                          <th class="border-top-0">Image</th>
+                                          <th class="border-top-0">Nom complet</th>
+                                          <th class="border-top-0">Note générale</th>
+                                          <th class="border-top-0">Etat</th>
+                                      </tr>
+                                  </thead>
+                                  
+                                  <tbody>
+
+                                   
+                                    
+                                   
+                                     
+                                    <% person.forEach(student => { %>
+                                        <% if (student.filiere == "isic1") { %>
+                                            <span style="display: none;"> <%- noteMoy = 0 %> </span>
+                                            <span style="display: none;"><%- i = 0 %> </span>
+                                        <% marks.forEach(mark => { %>
+                                            <% if (mark.etudiant == (student.prenom + " " + student.nom)) { %>
+                                                <span style="display: none;"> <%- noteMoy = noteMoy + mark.note %> </span>
+                                                <span style="display: none;"> <%- i = i + 1 %>  </span>
+                                            <% } %>
+                                        <% }) %>
+                                       <tr> 
+                                        <td><img src="static/uploads/images/<%= student.image %>" class="rounded-circle" alt="Avatar" style="width: 50px; height: 50px;"></td>
+                                          <td><%= student.prenom + " " + student.nom%>  </td>
+                                          <% if (noteMoy == 0) { %>
+                                            <td><%= noteMoy %> </td>
+                                            <% } else { %>
+                                                <td><%= Math.round((noteMoy / i) * 100) / 100 %> </td>
+                                          <% } %>
+                                          <% if ((noteMoy / i) < 12 | (noteMoy == 0)) { %>
+                                            <td style="color: rgb(231, 80, 80);">Non Validé</td>
+                                        <% } else { %>
+                                            <td style="color: rgb(66, 168, 66);">Validé</td>
+                                          <% } %>
+                                          
+                                      </tr>
+                                      <% } %>
+                                    <% }) %>
+
+                                     
+                                      
+                                  </tbody>
+                              </table>
+                          </div>
                       </div>
                   </div>
               </div>
-          </div>
-          </section>
-          <br />
-          <button class="btn btn-outline-primary" onclick="toggle(this, 'mysection2', 'ISIC1')">▷ Masquer la liste - ISIC1</button>
-          <div><br></div>
+              </section>
+              <br />
+              <button class="btn btn-outline-primary" onclick="toggle(this, 'mysection2', 'ISIC1')">▷ Masquer la liste - ISIC1</button>
+              <div><br></div>
 
-          <section id="mysection3">
-            <div class="col-sm-12">
-              <div class="card">
-                  <div class="card-body">
-                      <h4 class="card-title">ISIC2</h4>
-                      <h6 class="card-subtitle">Add class <code>.table</code></h6>
-                      <div class="table-responsive">
-                          <table class="table user-table">
-                              <thead>
-                                  <tr>
-                                      <th class="border-top-0">#</th>
-                                      <th class="border-top-0">First Name</th>
-                                      <th class="border-top-0">Last Name</th>
-                                      <th class="border-top-0">Username</th>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  <tr>
-                                      <td>1</td>
-                                      <td>Deshmukh</td>
-                                      <td>Prohaska</td>
-                                      <td>@Genelia</td>
-                                  </tr>
-                                  <tr>
-                                      <td>2</td>
-                                      <td>Deshmukh</td>
-                                      <td>Gaylord</td>
-                                      <td>@Ritesh</td>
-                                  </tr>
-                                  <tr>
-                                      <td>3</td>
-                                      <td>Sanghani</td>
-                                      <td>Gusikowski</td>
-                                      <td>@Govinda</td>
-                                  </tr>
-                                  <tr>
-                                      <td>4</td>
-                                      <td>Roshan</td>
-                                      <td>Rogahn</td>
-                                      <td>@Hritik</td>
-                                  </tr>
-                                  <tr>
-                                      <td>5</td>
-                                      <td>Joshi</td>
-                                      <td>Hickle</td>
-                                      <td>@Maruti</td>
-                                  </tr>
-                                  <tr>
-                                      <td>6</td>
-                                      <td>Nigam</td>
-                                      <td>Eichmann</td>
-                                      <td>@Sonu</td>
-                                  </tr>
-                              </tbody>
-                          </table>
+            
+              <section id="mysection3">
+                <div class="col-sm-12">
+                  <div class="card">
+                      <div class="card-body">
+                          <h4 class="card-title">ISIC2</h4>
+                          <h6 class="card-subtitle">liste des professeurs<code> </code> </h6>
+
+
+
+
+                          <div class="row text-center">
+                            <% profs.forEach(prof => { %>
+                                <% if (prof.classes.includes("isic2")) { %>
+                                    <div class="col-md-1 mb-4">
+                                        <img class="rounded-circle" alt="100x100"  title="<%= prof.prenom + " " + prof.nom %> " src="static/uploads/images/<%= prof.image %>" 
+                                          data-holder-rendered="true" style="width: 70px;height: 70px;">
+                                      </div>
+                                <% } %>
+                            <% }) %>
+                        </div>
+
+
+
+
+
+                          <div class="table-responsive">
+                              <table class="table user-table">
+                                  <thead>
+                                      <tr>
+                                          <th class="border-top-0">Image</th>
+                                          <th class="border-top-0">Nom complet</th>
+                                          <th class="border-top-0">Note générale</th>
+                                          <th class="border-top-0">Etat</th>
+                                      </tr>
+                                  </thead>
+                                  
+                                  <tbody>
+
+                                   
+                                    
+                                   
+                                     
+                                    <% person.forEach(student => { %>
+                                        <% if (student.filiere == "isic2") { %>
+                                            <span style="display: none;"> <%- noteMoy = 0 %> </span>
+                                            <span style="display: none;"><%- i = 0 %> </span>
+                                        <% marks.forEach(mark => { %>
+                                            <% if (mark.etudiant == (student.prenom + " " + student.nom)) { %>
+                                                <span style="display: none;"> <%- noteMoy = noteMoy + mark.note %> </span>
+                                                <span style="display: none;"> <%- i = i + 1 %>  </span>
+                                            <% } %>
+                                        <% }) %>
+                                       <tr> 
+                                        <td><img src="static/uploads/images/<%= student.image %>" class="rounded-circle" alt="Avatar" style="width: 50px; height: 50px;"></td>
+                                          <td><%= student.prenom + " " + student.nom%>  </td>
+                                          <% if (noteMoy == 0) { %>
+                                            <td><%= noteMoy %> </td>
+                                            <% } else { %>
+                                                <td><%= Math.round((noteMoy / i) * 100) / 100 %> </td>
+                                          <% } %>
+                                          <% if ((noteMoy / i) < 12 | (noteMoy == 0)) { %>
+                                            <td style="color: rgb(231, 80, 80);">Non Validé</td>
+                                        <% } else { %>
+                                            <td style="color: rgb(66, 168, 66);">Validé</td>
+                                          <% } %>
+                                          
+                                      </tr>
+                                      <% } %>
+                                    <% }) %>
+
+                                     
+                                      
+                                  </tbody>
+                              </table>
+                          </div>
                       </div>
                   </div>
               </div>
-          </div>
-          </section>
-          <br />
-          <button class="btn btn-outline-primary" onclick="toggle(this, 'mysection3', 'ISIC2')">▷ Masquer la liste - ISIC2</button>
-          <div><br></div>
-      </div>
-      </div>
+              </section>
+              <br />
+              <button class="btn btn-outline-primary" onclick="toggle(this, 'mysection3', 'ISIC2')">▷ Masquer la liste - ISIC2</button>
+              <div><br></div>
+
 
 
       
@@ -558,7 +585,7 @@
           <!-- ============================================================== -->
           <!-- footer -->
           <!-- ============================================================== -->
-          <footer class="footer"> © 2021 Material Pro Admin by <a href="https://www.wrappixel.com/">wrappixel.com </a>
+          <footer class="footer"> © 2022 ENSAJ
           </footer>
           <!-- ============================================================== -->
           <!-- End footer -->

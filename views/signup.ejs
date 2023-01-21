@@ -8,16 +8,18 @@
 
                 
                 
-                <h2>Sign Up</h2>
+                <img src="/static1/images/ensajlogo.png" style="height: 17%;width: 40%">
+
+                <br>
                 
                
                 <div class="row no-margin past">
-                    <p>You have already an account? <span>Sign In</span> </p>
+                    <p>Vous avez déjà un compte? <span> S'identifier</span> </p>
                 </div>
 
                 
                 <div class="text-box-cont">
-                    <form action="/addStudent" method="post">
+                    <form action="/addStudent" method="post" enctype="multipart/form-data">
 
 
                         <div class="input-group mb-3">
@@ -34,7 +36,7 @@
                        
                         <select name="filiere" class="form-control">
                             <option value="2ite1">2ITE1</option>
-                            <option value="2ite2">2ITE1</option>
+                            <option value="2ite2">2ITE2</option>
                             <option value="isic1">ISIC1</option>
                             <option value="isic2">ISIC2</option>
                         </select>
@@ -50,17 +52,16 @@
                     <!-- <div class="row no-margin">
                         <p class="forget-p">Forget Password ?</p>
                     </div> -->
-                    <div class="input-group mb-3">
+                    <div class="form-group">
                        
                         <input type="file" class="form-control" placeholder="Selectionner une image" aria-label="Username" aria-describedby="basic-addon1" name="image">
                     </div>
                     <div class="right-bkij mb-3">
-                        <button class="btn btn-success btn-round">sign Up</button>
+                        <button class="btn btn-success btn-round">S'inscrire</button>
                     </div>
 
                 </form>
-                    
-                    <br> 
+                <br> 
                     <!-- <div class="row linkoi">
                       <div class="col-sm-5">
                           <p>Or login with</p>
@@ -80,14 +81,15 @@
             </div>
             <div class="col-lg-6 col-md-6 box-de">
                 <div class="ditk-inf">
-                    <h2 class="w-100">Welcome Back </h2>
-                    <p>Connect to your account by <br> clicking the Sign In Button</p>
+                    <h3 class="w-100">&nbsp;&nbsp;Espace Etudiant </h3>
+                    <p>Connectez-vous à votre compte 
+                         <br>en cliquant sur s'identifier</p>
                     <a href="/create">
-                    <button type="button" class="btn btn-outline-light">Sign In</button>
+                    <button type="button" class="btn btn-outline-light">S'identifier</button>
                 </a>
                 </div>
             </div>
-        </div>
+         </div>
     </div>
 </div> 
 <%- include ('footer') -%> 

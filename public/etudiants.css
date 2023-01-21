@@ -2,7 +2,7 @@
 /* Colours */
 /* fonts */
 body {
-  font-family: "Assistant", sans-serif;
+    font-family: "Assistant", sans-serif;
 }
 
 h1,
@@ -10,118 +10,118 @@ h2,
 h4,
 h5,
 h6 {
-  font-family: "Poppins", sans-serif;
-  text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
+    text-transform: uppercase;
 }
 
 h2 {
-  font-weight: 700;
+    font-weight: 700;
 }
 
 h3 {
-  font-family: "Assistant", sans-serif;
-  font-weight: 300;
-  text-transform: none;
+    font-family: "Assistant", sans-serif;
+    font-weight: 300;
+    text-transform: none;
 }
 
 p {
-  font-weight: 400;
+    font-weight: 400;
 }
 
 strong {
-  font-weight: 700;
+    font-weight: 700;
 }
 
 /* Utilities */
 .no-padding {
-  padding: 0 !important;
+    padding: 0 !important;
 }
 
 /* width */
 .container {
-  width: 1080px;
+    width: 1080px;
 }
 
 /* Table Heading */
 .pricing-top-heading th {
-  text-align: center;
-  font-weight: 700;
-  font-size: 2rem;
-  width: 33%;
+    text-align: center;
+    font-weight: 700;
+    font-size: 2rem;
+    width: 33%;
 }
 
 .pricing-bottom-heading th {
-  padding: 0 2%;
-  font-weight: 300;
+    padding: 0 2%;
+    font-weight: 300;
 }
 
 .pricing-top-heading .free {
-  background-color: #f26b42;
-  border: 1px solid #f26b42;
+    background-color: #f26b42;
+    border: 1px solid #f26b42;
 }
 
 .pricing-bottom-heading .free {
-  background-color: #f28d6e;
-  border: 1px solid #f28d6e;
+    background-color: #f28d6e;
+    border: 1px solid #f28d6e;
 }
 
 .pricing-top-heading .basic {
-  background-color: #58c5c7;
-  border: 1px solid #58c5c7;
+    background-color: #58c5c7;
+    border: 1px solid #58c5c7;
 }
 
 .pricing-bottom-heading .basic {
-  background-color: #7fd1d2;
-  border: 1px solid #7fd1d2;
+    background-color: #7fd1d2;
+    border: 1px solid #7fd1d2;
 }
 
 .pricing-top-heading .pro {
-  background-color: #a5c653;
-  border: 1px solid #a5c653;
+    background-color: #a5c653;
+    border: 1px solid #a5c653;
 }
 
 .pricing-bottom-heading .pro {
-  background-color: #b9d17b;
-  border: 1px solid #b9d17b;
+    background-color: #b9d17b;
+    border: 1px solid #b9d17b;
 }
 
 .pricing-top-heading,
 .pricing-bottom-heading {
-  color: white;
-  height: 90px;
+    color: white;
+    height: 90px;
 }
 
 table thead th {
-  border: 0;
+    border: 0;
 }
 
 /* table */
 table {
-  width: 100%;
+    width: 100%;
 }
 
 .collapsible-section-header {
-  background-color: #e1e1e1;
+    background-color: #e1e1e1;
 }
 
 .collapsible-section-header a {
-  color: #363636;
-  font-weight: 700;
-  text-decoration: none;
+    color: #363636;
+    font-weight: 700;
+    text-decoration: none;
 }
 
 .collapsible-section-header a:after {
-  content: "▼";
-  padding-left: 0.5em;
+    content: "▼";
+    padding-left: 0.5em;
 }
 
 .collapsible-section-header a.collapsed:after {
-  content: "►";
-  padding-left: 0.5em;
+    content: "►";
+    padding-left: 0.5em;
 }
 
 tbody td {
-  background-color: #ededed;
-  border: 1px solid #d1d1d1;
-  padding: 1.25rem;
+    background-color: #ededed;
+    border: 1px solid #d1d1d1;
+    padding: 1.25rem;
 }

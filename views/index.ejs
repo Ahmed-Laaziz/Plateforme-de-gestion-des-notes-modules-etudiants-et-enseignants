@@ -11,7 +11,7 @@
     <meta name="description"
         content="Material Pro Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>Material Pro Lite Template by WrapPixel</title>
+    <title>Mon profile</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/materialpro-lite/" />
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="static1/images/favicon.png">
@@ -34,12 +34,12 @@
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
-    <div class="preloader">
+    <!-- <div class="preloader">
         <div class="lds-ripple">
             <div class="lds-pos"></div>
             <div class="lds-pos"></div>
         </div>
-    </div>
+    </div> -->
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
@@ -54,21 +54,18 @@
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <a class="navbar-brand ms-4" href="index.html">
+                    <a class="navbar-brand ms-4" href="index">
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="static1/images/tri_logo.png" alt="homepage" class="dark-logo" style="width: 100%;"/>
-
+                            <img src="static1/images/tri_logo.png" alt="homepage" class="dark-logo" style="width: 27%; height: 10%;"/>
+                            &nbsp;&nbsp;&nbsp;<span class="text-uppercase font-weight-bold" style="font-size:130% ;">ENSAJ</span><span style="font-size:130%;color: rgb(171, 196, 226);">TRI</span>&nbsp;<i class="fa-solid fa-seedling"></i>
                         </b>
+                        
                         <!--End Logo icon -->
                         <!-- Logo text -->
-                        <span class="logo-text">
-                            <!-- dark Logo text -->
-                            <img src="static1/images/logo-light-text.png" alt="homepage" class="dark-logo" />
-
-                        </span>
+                        
                     </a>
                     <!-- ============================================================== -->
                     <!-- End Logo -->
@@ -114,7 +111,7 @@
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="static1/images/myImage2.png" alt="user" class="profile-pic me-2"><%= person.prenom + " " + person.nom %> 
+                                <img src="static/uploads/images/<%= ourClient.image %>" alt="user" class="profile-pic me-2"><%= ourClient.prenom + " " + ourClient.nom %>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown"></ul>
                         </li>
@@ -130,69 +127,78 @@
         <!-- ============================================================== -->
         <aside class="left-sidebar" data-sidebarbg="skin6">
             <!-- Sidebar scroll-->
-            <div class="scroll-sidebar">
+            <div class="scroll-sidebar" >
                 <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
+                <nav class="sidebar-nav" >
+                    <br>
                     <ul id="sidebarnav">
                         <!-- User Profile-->
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="./notes" aria-expanded="false"><i class="mdi me-2 mdi-gauge"></i><span
-                                    class="hide-menu">notes</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="pages-profile.html" aria-expanded="false">
-                                <i class="mdi me-2 mdi-account-check"></i><span class="hide-menu">Profile</span></a>
+                        <% switch (ourClient.role) {
+                            case 'etudiant' : %>
+                            <li class="sidebar-item"> <a class="active waves-effect waves-dark sidebar-link"
+                                href="./index" aria-expanded="false">
+                                <i class="fa-regular fa-user"></i> <span class="hide-menu">&nbsp;&nbsp;&nbsp;Mon Profile</span></a>
+                            </li>
+
+                            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="./consulternote" aria-expanded="false"><i class="fa-solid fa-eye"></i><span class="hide-menu">&nbsp;&nbsp;&nbsp;Consulter les notes</span></a>
+                            </li>
+
+                            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="./suivredemande" aria-expanded="false"><i class="fa-solid fa-file-circle-question"></i><span class="hide-menu">&nbsp;&nbsp;&nbsp;Suivre demandes</span></a></li>
+
+                                    <% break;
+                            
+                            case 'professeur' : %>
+                            <li class="sidebar-item"> <a class="active waves-effect waves-dark sidebar-link"
+                                href="./index" aria-expanded="false">
+                                <i class="fa-regular fa-user"></i> <span class="hide-menu">&nbsp;&nbsp;&nbsp;Mon Profile</span></a>
+                            </li>
+
+                            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="./notes" aria-expanded="false"><i class="fa-solid fa-square-poll-vertical"></i><span
+                                    class="hide-menu">&nbsp;&nbsp;&nbsp;Notes</span></a></li>
+
+                                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="./listedemandes" aria-expanded="false"><i class="fa-solid fa-list-check"></i><span
+                                class="hide-menu">&nbsp;&nbsp;&nbsp;Liste des demandes</span></a>
+                                    <% break;
+                            
+                            case 'Cordinateur' : %>
+                            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="./dash" aria-expanded="false">
+                                <i class="fa-solid fa-chart-line"></i> <span class="hide-menu">&nbsp;&nbsp;&nbsp;Tableau de bord</span></a>
+                            </li>
+                            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="./index" aria-expanded="false">
+                                <i class="fa-regular fa-user"></i> <span class="hide-menu">&nbsp;&nbsp;&nbsp;Mon Profile</span></a>
+                            </li>
+                            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="./profs" aria-expanded="false"><i class="fa-solid fa-person-chalkboard"></i><span
+                                    class="hide-menu">&nbsp;&nbsp;&nbsp;Professeurs</span></a></li>
+                                    
+                            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="./etudiants" aria-expanded="false"><i class="fa-solid fa-graduation-cap"></i><span
+                                    class="hide-menu">&nbsp;&nbsp;&nbsp;Etudiants</span></a></li>
+                                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="./modules" aria-expanded="false"><i class="fa-solid fa-book-open-reader"></i><span
+                                    class="hide-menu">&nbsp;&nbsp;&nbsp;Modules</span></a>
                         </li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="./etudiants" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
-                                    class="hide-menu">Etudiants</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="./suivredemande" aria-expanded="false"><i
-                                    class="mdi me-2 mdi-emoticon"></i><span class="hide-menu">Suivre demandes</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="./profs" aria-expanded="false"><i class="mdi me-2 mdi-earth"></i><span
-                                    class="hide-menu">Professeurs</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="./consulternote" aria-expanded="false"><i
-                                    class="mdi me-2 mdi-book-open-variant"></i><span class="hide-menu">Consulter les notes</span></a>
-                        </li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="./modules" aria-expanded="false"><i class="mdi me-2 mdi-help-circle"></i><span
-                                    class="hide-menu">Modules</span></a>
-                        </li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                            href="./listedemandes" aria-expanded="false"><i class="mdi me-2 mdi-help-circle"></i><span
-                                class="hide-menu">Liste des demandes</span></a>
-                    </li>
-                        <li class="text-center p-20 upgrade-btn">
-                            <a href="https://www.wrappixel.com/templates/materialpro/"
-                                class="btn btn-warning text-white mt-4" target="_blank">Upgrade to
-                                Pro</a>
-                        </li>
-                    </ul>
+                                    <% break;
+                            } %>
+
+                  </ul>
 
                 </nav>
                 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->
             <div class="sidebar-footer">
-                <div class="row">
-                    <div class="col-4 link-wrap">
-                        <!-- item-->
-                        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Settings"><i
-                                class="ti-settings"></i></a>
-                    </div>
-                    <div class="col-4 link-wrap">
-                        <!-- item-->
-                        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i
-                                class="fa fa-facebook-f"></i></a>
-                    </div>
-                    <div class="col-4 link-wrap">
-                        <!-- item-->
-                        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i
-                                class="mdi mdi-power"></i></a>
-                    </div>
-                </div>
+                <center><div>
+                        <img src="static1/images/ensajlogo.png" alt="" style="width:50%;height:50%;">
+                    </div></center>
             </div>
+            
         </aside>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
@@ -211,8 +217,8 @@
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Profile</li>
+                                    <li class="breadcrumb-item"><a href="./">Login&nbsp;&nbsp;</a></li>
+                                    <i class="fa-solid fa-angle-right"></i><li class="breadcrumb-item active" aria-current="page">&nbsp;&nbsp;Profile</li>
                                 </ol>
                             </nav>
                         </div>
@@ -254,7 +260,7 @@
                     <div class="col-lg-4 col-xlg-3 col-md-5">
                         <div class="card">
                             <div class="card-body profile-card">
-                                <center class="mt-4"> <img src="static1/images/myImage2.png"
+                                <center class="mt-4"> <img src="static/uploads/images/<%= person.image %>"
                                         class="rounded-circle" width="150" />
                                     <h4 class="card-title mt-2"><%= person.prenom + " " + person.nom %> </h4>
                                     <h6 class="card-subtitle"><%= person.role %>  a l'école nationale des sciences appliquées d'el Jadida</h6>
@@ -273,7 +279,7 @@
                                         <div class="col-4">
                                             <a href="javascript:void(0)" class="link">
                                                 <i class="icon-picture" aria-hidden="true"></i>
-                                                <span class="value-digit">54</span>
+                                                <span class="value-digit">R130178</span>
                                             </a></div>
                                     </div>
                                 </center>
@@ -285,9 +291,10 @@
                     <div class="col-lg-8 col-xlg-9 col-md-7">
                         <div class="card">
                             <div class="card-body">
-                                <form class="form-horizontal form-material mx-2" action="/updateProfile" method="post">
+                                <form class="form-horizontal form-material mx-2" action="/updateProfile" method="post" enctype="multipart/form-data">
                             
                                     <input type="hidden"  name="userId" value="<%= person._id %>">
+                                    <input type="hidden"  name="userimg" value="<%= person.image %>">
                                     <div class="form-group">
                                         <label class="col-md-12 mb-0">Nom</label>
                                         <div class="col-md-12">
@@ -309,10 +316,15 @@
                                         <label class="col-md-12 mb-0">Filiere</label>
                                         <div class="col-md-12">
                                             <input type="text" value="<%= person.filiere %>"
-                                                class="form-control ps-0 form-control-line" name = "filiere" required>
+                                                class="form-control ps-0 form-control-line" name = "filiere" required readonly="readonly">
                                         </div>
                                     </div>
+                                    
+                                    <% } else if (person.role == "Cordinateur") { %> 
+                                        <input type="hidden" name="" id="">
+                                    
                                     <% } else { %>
+                                        <input type="hidden"  name="classes" value="<%= person.classes %>">
                                         <div class="form-group">
                                             <label class="col-md-12 mb-0">Departement</label>
                                             <div class="col-md-12">
@@ -320,11 +332,19 @@
                                                     class="form-control ps-0 form-control-line" name = "departement" required>
                                             </div>
                                         </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="col-md-12 mb-0">Classes associées</label>
+                                            <div class="col-md-12">
+                                                <input type="text" value="<%= person.classes %>"
+                                                    class="form-control ps-0 form-control-line" readonly="readonly">
+                                            </div>
+                                        </div>
                                     <% } %>
                                     <div class="form-group">
                                         <label class="col-md-12 mb-0">Changer votre photo de profile</label>
-                                        <div class="col-md-12">
-                                            <input type="file" name = "image"
+                                        <div class="form-group">
+                                            <input type="file" name = "image" value="<%= person.image %>"
                                                 >
                                         </div>
                                     </div>
@@ -333,21 +353,21 @@
                                         <div class="col-md-12">
                                             <input type="email" value="<%= person.email %>"
                                                 class="form-control ps-0 form-control-line" name="email" required
-                                                id="example-email">
+                                                id="example-email" >
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12 mb-0">Mot de passe</label>
                                         <div class="col-md-12">
                                             <input type="password" name="password" required
-                                                class="form-control ps-0 form-control-line">
+                                                class="form-control ps-0 form-control-line" id = "id1">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12 mb-0">Confirmer le Mot de passe</label>
                                         <div class="col-md-12">
                                             <input type="password"  required
-                                                class="form-control ps-0 form-control-line">
+                                                class="form-control ps-0 form-control-line" id = "id2">
                                         </div>
                                     </div>
                                     
@@ -369,11 +389,19 @@
                                             </select>
                                         </div>
                                     </div> -->
-                                    <div class="form-group">
+                                    <% if (person.role == "Cordinateur") { %>
+                                        <div class="form-group">
                                         <div class="col-sm-12 d-flex">
-                                            <button class="btn btn-success mx-auto mx-md-0 text-white">Modifier le profile</button>
+                                            <button class="btn btn-success mx-auto mx-md-0 text-white" id = "buttonId" disabled>Modifier le profile</button>
                                         </div>
                                     </div>
+                                    <% } else { %> 
+                                    <div class="form-group">
+                                        <div class="col-sm-12 d-flex">
+                                            <button class="btn btn-success mx-auto mx-md-0 text-white" id = "buttonId">Modifier le profile</button>
+                                        </div>
+                                    </div>
+                                    <% } %>
                                 </form>
                             </div>
                         </div>
@@ -398,7 +426,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer"> © 2021 Material Pro Admin by <a href="https://www.wrappixel.com/">wrappixel.com </a>
+            <footer class="footer"> © 2022 Ensaj 
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
@@ -424,6 +452,24 @@
     <script src="/static1/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="/static1/js/custom.js"></script>
+
+    <!-- <script>
+
+
+    document.getElementById("buttonId").addEventListener("click", function () {
+        var first_id = document.getElementById('id1');
+        var seconde_id = document.getElementById('id2');
+        console.log(first_id.value);
+        if (first_id.value != seconde_id.value){
+            first_id = "";
+            seconde_id = "";
+        }
+    });
+
+        
+        
+    
+    </script> -->
 </body>
 
 <%- include ('footer') -%>  

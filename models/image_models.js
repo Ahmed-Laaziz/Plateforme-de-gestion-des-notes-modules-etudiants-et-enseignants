@@ -5,7 +5,7 @@ const ImageSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    image:{
+    image: {
         data: Buffer,
         contentType: String
     }

@@ -1,5 +1,6 @@
 <%- include ('header') -%> 
 
+
 <div class="container-fluid ">
         
     <div class=" no-pdding login-box">
@@ -7,43 +8,54 @@
             <div class="col-lg-6 col-md-6 log-det">
 
                 
+                <div class="row">
                 
-                <h2>Login</h2>
+                <img src="/static1/images/ensajlogo.png" style="height: 40%;width: 35%">
                 
+               
+            </div>
+            
                
                 <div class="row no-margin past" >
                     
                     <% if (existingEmail) { %>
-                        <smal style="color: rgb(35, 139, 224);"> email existe déja veuillez se connecter</small>
+                        <smal style="color: rgb(35, 139, 224);"> email existe déjà veuillez vous connecter</small>
                     <% } else { %>
-                    <p>Dont Have an Account? <span>Create your Account</span> </p>
+                        
                     <% } %>
                 </div>
 
                 
                 <div class="text-box-cont">
-                    <form action="/createUser" method="post">
+                    <form action="/index" method="post">
                         <% if (!existe) { %>
-                            <small style="color: red;">invalid email</small>
-                        <% } %>
-                    <div class="input-group mb-3">
+                            <small style="color: red;">email invalide</small>
+                            <div class="input-group mb-3">
                        
-                        <input type="text" class="form-control" placeholder="email" aria-label="Username" aria-describedby="basic-addon1" name="email" required>
-                    </div>
-                    <% if (!existe) { %>
-                        <small style="color: red;">invalid password</small>
-                    <% } %>
-
-                     <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="email" aria-label="Username" aria-describedby="basic-addon1" name="email" value = "<%= email %>" required>
+                            </div>
+                            <small style="color: red;">mot de passe invalide</small>
+                            <div class="input-group mb-3">
                         
-                        <input type="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" name="password" required>
-                    </div>
+                                <input type="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" name="password" value="<%= pwd %>" required>
+                            </div>
+                        <% } else {%>
                     
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="email" aria-label="Username" aria-describedby="basic-addon1" name="email" required>
+                        </div>
+                        <div class="input-group mb-3">
+                        
+                            <input type="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" name="password" required>
+                        </div>
+                    
+                    <% } %> 
+                     
                     <div class="row no-margin">
-                        <p class="forget-p">Forget Password ?</p>
+                        <p class="forget-p">mot de passe oublié ?</p>
                     </div>
                     <div class="right-bkij mb-3">
-                        <button class="btn btn-success btn-round">sign In</button>
+                        <button class="btn btn-success btn-round">S'identifier</button>
                     </div>
 
                 </form>
@@ -51,7 +63,7 @@
                     <br> 
                     <div class="row linkoi">
                       <div class="col-sm-5">
-                          <p>Or login with</p>
+                          <p>ou bien avec</p>
                       </div>
                        <div class="col-sm-7">
                            <ul>
@@ -68,10 +80,10 @@
             </div>
             <div class="col-lg-6 col-md-6 box-de">
                 <div class="ditk-inf">
-                    <h2 class="w-100">Welcome Back </h2>
-                    <p>Simply Create your account by <br> clicking the Signup Button</p>
+                    <h2 class="w-100">Espace Etudiant </h2>
+                    <p>Créez simplement votre compte  <br>en cliquant sur le bouton d'inscription</p>
                 <a href="/signup">
-                    <button type="button" class="btn btn-outline-light">Sign Up</button>
+                    <button type="button" class="btn btn-outline-light">S'inscrire</button>
                 </a>
                 </div>
             </div>

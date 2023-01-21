@@ -10,38 +10,42 @@
     <div class=" no-pdding login-box">
         <div class="row no-margin w-100 bklmj">
             <div class="col-lg-6 col-md-6 log-det">
-
-                
-                
-                <h2>Admin login</h2>
-                
-               
-                
-
-                
-                <div class="text-box-cont">
+                <img src="/static1/images/ensajlogo.png" style="height: 22%;width: 40%">
+                <h4> <b>Espace des Enseignants</b> </h4>
+                <br>
+               <div class="text-box-cont">
                     <form action="/signinprof" method="post">
                         <% if (!existe) { %>
-                            <small style="color: red;">invalid email</small>
-                        <% } %>
+                            <small style="color: red;">email invalide</small>
+                            <div class="input-group mb-3">
+                       
+                                <input type="text" class="form-control" placeholder="email" aria-label="Username" aria-describedby="basic-addon1" name="email" value = "<%= email %>" required>
+                            </div>
+                            <small style="color: red;">mot de passe invalide</small>
+                            <div class="input-group mb-3">
+                        
+                                <input type="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" name="password" value="<%= pwd %>" required>
+                            </div>
+                        
+                        <% } else { %>
                     <div class="input-group mb-3">
                        
                         <input type="text" class="form-control" placeholder="email" aria-label="Username" aria-describedby="basic-addon1" name="email" required>
                     </div>
-                    <% if (!existe) { %>
-                        <small style="color: red;">invalid password</small>
-                    <% } %>
-
-                     <div class="input-group mb-3">
+                    
+                    <div class="input-group mb-3">
                         
                         <input type="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" name="password" required>
                     </div>
+                    <% } %>
+
+                     
                     
                     <div class="row no-margin">
-                        <p class="forget-p">Forget Password ?</p>
+                        <p class="forget-p">mot de passe oublié ?</p>
                     </div>
-                    <div class="right-bkij mb-3">
-                        <button class="btn btn-success btn-round">sign In</button>
+                    <div class=" mb-3">
+                        <button class="btn btn-success btn-round" style="border-radius:5% ;">S'identifier</button>
                     </div>
 
                 </form>

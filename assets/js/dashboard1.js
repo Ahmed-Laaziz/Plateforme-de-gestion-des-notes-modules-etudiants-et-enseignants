@@ -4,7 +4,7 @@ Author: Themedesigner
 Email: niravjoshi87@gmail.com
 File: js
 */
-$(function() {
+$(function () {
     "use strict";
     // ============================================================== 
     // Sales overview
@@ -39,7 +39,7 @@ $(function() {
     // ==============================================================
 
     for (var i = 0; i < chart.length; i++) {
-        chart[i].on('draw', function(data) {
+        chart[i].on('draw', function (data) {
             if (data.type === 'line' || data.type === 'area') {
                 data.element.animate({
                     d: {
@@ -85,9 +85,15 @@ $(function() {
             ],
 
             type: 'donut',
-            onclick: function(d, i) { console.log("onclick", d, i); },
-            onmouseover: function(d, i) { console.log("onmouseover", d, i); },
-            onmouseout: function(d, i) { console.log("onmouseout", d, i); }
+            onclick: function (d, i) {
+                console.log("onclick", d, i);
+            },
+            onmouseover: function (d, i) {
+                console.log("onmouseover", d, i);
+            },
+            onmouseout: function (d, i) {
+                console.log("onmouseout", d, i);
+            }
         },
         donut: {
             label: {
@@ -100,16 +106,13 @@ $(function() {
 
         legend: {
             hide: true
-                //or hide: 'data1'
-                //or hide: ['data1', 'data2']
+            //or hide: 'data1'
+            //or hide: ['data1', 'data2']
         },
         color: {
             pattern: ['#eceff1', '#745af2', '#26c6da', '#1e88e5']
         }
     });
-
-
-
 
 
 });

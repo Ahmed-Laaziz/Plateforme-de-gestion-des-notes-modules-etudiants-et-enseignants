@@ -11,7 +11,7 @@
     <meta name="description"
         content="Material Pro Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>Material Pro Lite Template by WrapPixel</title>
+    <title>Suivre demande</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/materialpro-lite/" />
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="static1/images/favicon.png">
@@ -155,12 +155,7 @@
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
-    <div class="preloader">
-        <div class="lds-ripple">
-            <div class="lds-pos"></div>
-            <div class="lds-pos"></div>
-        </div>
-    </div>
+    
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
@@ -175,30 +170,19 @@
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <a class="navbar-brand ms-4" href="index.html">
-                        <!-- Logo icon -->
-                        <b class="logo-icon">
-                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                            <!-- Dark Logo icon -->
-                            <img src="static1/images/tri_logo.png" alt="homepage" class="dark-logo" style="width: 100%;"/>
-
-                        </b>
-                        <!--End Logo icon -->
-                        <!-- Logo text -->
-                        <span class="logo-text">
-                            <!-- dark Logo text -->
-                            <img src="static1/images/logo-light-text.png" alt="homepage" class="dark-logo" />
-
-                        </span>
-                    </a>
-                    <!-- ============================================================== -->
-                    <!-- End Logo -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <!-- toggle and nav items -->
-                    <!-- ============================================================== -->
-                    <a class="nav-toggler waves-effect waves-light text-white d-block d-md-none"
-                        href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                    <a class="navbar-brand ms-4" href="index">
+                      <!-- Logo icon -->
+                      <b class="logo-icon">
+                          <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                          <!-- Dark Logo icon -->
+                          <img src="static1/images/tri_logo.png" alt="homepage" class="dark-logo" style="width: 27%; height: 10%;"/>
+                          &nbsp;<span class="text-uppercase font-weight-bold" style="font-size:130% ;">ENSAJ</span><span style="font-size:130%;color: rgb(171, 196, 226);">TRI</span>&nbsp;<i class="fa-solid fa-seedling"></i>
+                      </b>
+                      
+                      <!--End Logo icon -->
+                      <!-- Logo text -->
+                      
+                  </a>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -235,7 +219,7 @@
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="static1/images/myImage2.png" alt="user" class="profile-pic me-2">
+                              <img src="static/uploads/images/<%= ourClient.image %>" alt="user" class="profile-pic me-2"><%= ourClient.prenom + " " + ourClient.nom %> 
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown"></ul>
                         </li>
@@ -250,67 +234,76 @@
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
         <aside class="left-sidebar" data-sidebarbg="skin6">
-            <!-- Sidebar scroll-->
-            <div class="scroll-sidebar">
-                <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-                        <!-- User Profile-->
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="index.html" aria-expanded="false"><i class="mdi me-2 mdi-gauge"></i><span
-                                    class="hide-menu">Dashboard</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="pages-profile.html" aria-expanded="false">
-                                <i class="mdi me-2 mdi-account-check"></i><span class="hide-menu">Profile</span></a>
-                        </li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="table-basic.html" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
-                                    class="hide-menu">Table</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="icon-material.html" aria-expanded="false"><i
-                                    class="mdi me-2 mdi-emoticon"></i><span class="hide-menu">Icon</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="./profs" aria-expanded="false"><i class="mdi me-2 mdi-earth"></i><span
-                                    class="hide-menu">Professeurs</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="pages-blank.html" aria-expanded="false"><i
-                                    class="mdi me-2 mdi-book-open-variant"></i><span class="hide-menu">Blank</span></a>
-                        </li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="pages-error-404.html" aria-expanded="false"><i class="mdi me-2 mdi-help-circle"></i><span
-                                    class="hide-menu">Error 404</span></a>
-                        </li>
-                        <!-- <li class="text-center p-20 upgrade-btn">
-                            <a href="https://www.wrappixel.com/templates/materialpro/"
-                                class="btn btn-warning text-white mt-4" target="_blank">Upgrade to
-                                Pro</a>
-                        </li> -->
-                    </ul>
+          <!-- Sidebar scroll-->
+          <div class="scroll-sidebar">
+              <!-- Sidebar navigation-->
+              <nav class="sidebar-nav">
+                  <br>
+                  <ul id="sidebarnav">
+                      <!-- User Profile-->
+                      <% switch (ourClient.role) {
+                          case 'etudiant' : %>
+                          <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                              href="./index" aria-expanded="false">
+                              <i class="fa-regular fa-user"></i> <span class="hide-menu">&nbsp;&nbsp;&nbsp;Mon Profile</span></a>
+                          </li>
 
-                </nav>
-                <!-- End Sidebar navigation -->
-            </div>
-            <!-- End Sidebar scroll-->
-            <div class="sidebar-footer">
-                <div class="row">
-                    <div class="col-4 link-wrap">
-                        <!-- item-->
-                        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Settings"><i
-                                class="ti-settings"></i></a>
-                    </div>
-                    <div class="col-4 link-wrap">
-                        <!-- item-->
-                        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i
-                                class="fa fa-facebook-f"></i></a>
-                    </div>
-                    <div class="col-4 link-wrap">
-                        <!-- item-->
-                        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i
-                                class="mdi mdi-power"></i></a>
-                    </div>
-                </div>
-            </div>
-        </aside>
+                          <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                              href="./consulternote" aria-expanded="false"><i class="fa-solid fa-eye"></i><span class="hide-menu">&nbsp;&nbsp;&nbsp;Consulter les notes</span></a>
+                          </li>
+
+                          <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                              href="./suivredemande" aria-expanded="false"><i class="fa-solid fa-file-circle-question"></i><span class="hide-menu">&nbsp;&nbsp;&nbsp;Suivre demandes</span></a></li>
+
+                                  <% break;
+                          
+                          case 'professeur' : %>
+                          <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                              href="./index" aria-expanded="false">
+                              <i class="fa-regular fa-user"></i> <span class="hide-menu">&nbsp;&nbsp;&nbsp;Mon Profile</span></a>
+                          </li>
+
+                          <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                              href="./notes" aria-expanded="false"><i class="fa-solid fa-square-poll-vertical"></i><span
+                                  class="hide-menu">&nbsp;&nbsp;&nbsp;Notes</span></a></li>
+
+                                  <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                          href="./listedemandes" aria-expanded="false"><i class="fa-solid fa-list-check"></i><span
+                              class="hide-menu">&nbsp;&nbsp;&nbsp;Liste des demandes</span></a>
+                                  <% break;
+                          
+                          case 'Cordinateur' : %>
+                          <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                              href="./index" aria-expanded="false">
+                              <i class="fa-regular fa-user"></i> <span class="hide-menu">&nbsp;&nbsp;&nbsp;Mon Profile</span></a>
+                          </li>
+                          <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                              href="./profs" aria-expanded="false"><i class="fa-solid fa-person-chalkboard"></i><span
+                                  class="hide-menu">&nbsp;&nbsp;&nbsp;Professeurs</span></a></li>
+                                  
+                          <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                              href="./etudiants" aria-expanded="false"><i class="fa-solid fa-graduation-cap"></i><span
+                                  class="hide-menu">&nbsp;&nbsp;&nbsp;Etudiants</span></a></li>
+                                  <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                              href="./modules" aria-expanded="false"><i class="fa-solid fa-book-open-reader"></i><span
+                                  class="hide-menu">&nbsp;&nbsp;&nbsp;Modules</span></a>
+                      </li>
+                                  <% break;
+                          } %>
+
+                </ul>
+
+              </nav>
+              <!-- End Sidebar navigation -->
+          </div>
+          <!-- End Sidebar scroll-->
+          <div class="sidebar-footer">
+              <center><div>
+                      <img src="static1/images/ensajlogo.png" alt="" style="width:50%;height:50%;">
+                  </div></center>
+          </div>
+          
+      </aside>
 
 
         <!-- <div class="main-content">
@@ -416,10 +409,10 @@
                         <div class="table-title">
                             <div class="row">
                                 <div class="col-sm-5">
-                                    <h2>User <b>Management</b></h2>
+                                    <h2>Liste des <b>Demandes</b></h2>
                                 </div>
                                 <div class="col-sm-7">
-                                    <a href="./addprof" class="btn btn-secondary"><i class="material-icons"></i> <span>Add New User</span></a>
+                                    <!-- <a href="./addprof" class="btn btn-secondary"><i class="material-icons"></i> <span>Add New User</span></a> -->
                                     <div class="search-box">
                                         <i class="material-icons"></i>
                                         <input type="text" class="form-control" placeholder="Search…">
@@ -473,7 +466,7 @@
                                     <td>
                                        <form action="/deletedemande" method="post">
                                         <input type="hidden" name = "demandeid" value = "<%= demande._id %>" >
-                                        <button class="delete" title="Delete" data-toggle="tooltip" style="border: white;"><i class="material-icons" style="color:red ;"></i></button>
+                                        <button class="delete" title="Delete" data-toggle="tooltip" style="border: white;"><i class="fa-regular fa-trash-can" style="color: rgb(226, 72, 72);"></i></button>
                                       </form>
                                     </td>
                                 </tr>
@@ -525,12 +518,12 @@
                             </tbody>
                         </table>
                         <div class="clearfix">
-                            <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+                            
                             <ul class="pagination">
                                 <li class="page-item disabled"><a href="#">Previous</a></li>
-                                <li class="page-item"><a href="#" class="page-link">1</a></li>
+                                <li class="page-item active"><a href="#" class="page-link">1</a></li>
                                 <li class="page-item"><a href="#" class="page-link">2</a></li>
-                                <li class="page-item active"><a href="#" class="page-link">3</a></li>
+                                <li class="page-item"><a href="#" class="page-link">3</a></li>
                                 <li class="page-item"><a href="#" class="page-link">4</a></li>
                                 <li class="page-item"><a href="#" class="page-link">5</a></li>
                                 <li class="page-item"><a href="#" class="page-link">Next</a></li>
@@ -545,8 +538,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer"> © 2021 Material Pro Admin by <a href="https://www.wrappixel.com/">wrappixel.com </a>
-            </footer>
+            
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
