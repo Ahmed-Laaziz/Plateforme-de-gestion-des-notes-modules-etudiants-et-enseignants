@@ -35,10 +35,11 @@ const upload = multer({
     },
 });
 
+const port = process.env.PORT || 4040;
 mongo_url = "mongodb+srv://ahmed:ahmed123@cluster0.i5myq.mongodb.net/?retryWrites=true&w=majority"
 mongoose.connect(mongo_url)
     .then((res) => {
-        app.listen(5000);
+        app.listen(port);
     })
     .catch((err) => {
         console.log("UNE ERREUR S'EST PRODUITE LORS DE LA CONNECTION AVEC LA BD MONGO");
