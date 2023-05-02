@@ -175,8 +175,8 @@
                       <b class="logo-icon">
                           <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                           <!-- Dark Logo icon -->
-                          <img src="static1/images/tri_logo.png" alt="homepage" class="dark-logo" style="width: 27%; height: 10%;"/>
-                          &nbsp;<span class="text-uppercase font-weight-bold" style="font-size:130% ;">ENSAJ</span><span style="font-size:130%;color: rgb(171, 196, 226);">TRI</span>&nbsp;<i class="fa-solid fa-seedling"></i>
+                          
+                          &nbsp;<span class="text-uppercase font-weight-bold" style="font-size:130% ;">ENSAJ</span><span style="font-size:130%;color: rgb(171, 196, 226);"></span>&nbsp;<i class="fa-solid fa-seedling"></i>
                       </b>
                       
                       <!--End Logo icon -->
@@ -254,6 +254,9 @@
 
                           <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                               href="./suivredemande" aria-expanded="false"><i class="fa-solid fa-file-circle-question"></i><span class="hide-menu">&nbsp;&nbsp;&nbsp;Suivre demandes</span></a></li>
+                              <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="./cimasi" aria-expanded="false"><i class="fa-solid fa-eye"></i><span class="hide-menu">&nbsp;&nbsp;&nbsp;CIMASI</span></a>
+                            </li>
 
                                   <% break;
                           
@@ -269,7 +272,11 @@
 
                                   <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                           href="./listedemandes" aria-expanded="false"><i class="fa-solid fa-list-check"></i><span
-                              class="hide-menu">&nbsp;&nbsp;&nbsp;Liste des demandes</span></a>
+                              class="hide-menu">&nbsp;&nbsp;&nbsp;Liste des demandes</span></a></li>
+
+                              <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="./cimasi" aria-expanded="false"><i class="fa-solid fa-eye"></i><span class="hide-menu">&nbsp;&nbsp;&nbsp;CIMASI</span></a>
+                            </li>
                                   <% break;
                           
                           case 'Cordinateur' : %>
@@ -424,8 +431,10 @@
                             <thead>
                                 <tr>
                                     
-                                    <th>Type</th>						
+                                    <th>Type</th>		
+                                    				
                                     <th>Module</th>
+                                    <th>Telecharger</th>
                                     <th>Etat</th>
                                     <!-- <th>Status</th> -->
                                     <th>Action</th>
@@ -441,6 +450,14 @@
                                     
                                     <td><%= demande.type %>  </td>                        
                                     <td><%= demande.module %> </td>
+
+                                    <td>
+                                      <form action="/downloaddemande" method="post">
+                                        <input type="hidden" name = "demandeid" value = "<%= demande._id %>" >
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button  class="" title="Telecharger la demande" data-toggle="tooltip" style="border: white;"><i class="fa-solid fa-download" style="color:rgb(97, 145, 212) ;"></i></button>
+                                      </form>
+                                      
+                                    </td>
 
                                     <% switch (demande.etat) {
                                         case 'en attente' : %>

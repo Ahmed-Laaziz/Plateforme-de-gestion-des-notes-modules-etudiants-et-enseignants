@@ -34,11 +34,11 @@ const upload = multer({
         fieldSize: 1024 * 1024 * 3,
     },
 });
-
+const port = process.env.PORT || 4040;
 mongo_url = "mongodb+srv://ahmed:ahmed123@cluster0.i5myq.mongodb.net/?retryWrites=true&w=majority"
 mongoose.connect(mongo_url)
     .then((res) => {
-        app.listen(5000);
+        app.listen(port);
     })
     .catch((err) => {
         console.log("UNE ERREUR S'EST PRODUITE LORS DE LA CONNECTION AVEC LA BD MONGO");
@@ -942,6 +942,98 @@ app.get('/dash', async (req, res) => {
         res.render('error')
     }
 })
+
+
+app.get('/cimasi', (req, res) => {
+    res.render('cimasi', {
+        person: ourClient,
+    });
+})
+
+app.get('/visit', (req, res) => {
+    res.render('visit', {
+        person: ourClient,
+    });
+})
+
+app.post('/demandeVisite', (req, res, next) => {
+
+    
+    // Sauvegarder la demande
+    const demande = new Demande(
+        {
+            
+            type: "Réservation d'une machine : " + req.body.machine,
+            etudiant: req.body.prenom + " " + req.body.nom,
+            professeur: "Rahhal Erratahi",
+            module: "__",
+            message: req.body.message + "\n Période de réservation souhaitée : \n De : " + req.body.date1 + "\n A : " + req.body.date2,
+            etat: "en attente"
+        }
+    );
+    demande.save()
+        .then(result => {
+            // alert("Demande envoyée avec succée!");
+            // Generate a PDF
+            const stream = res.writeHead(200, {
+                'Content-Type': 'application/pdf',
+                'Content-Disposition': `attachment;filename=invoice.pdf`,
+            });
+            pdfService.buildPDF(
+                (chunk) => stream.write(chunk),
+                () => stream.end(),
+                demande
+            );
+        })
+        .catch(err => {
+            console.log(err)
+        })
+});
+
+app.get('/machines', (req, res) => {
+    res.render('machines', {
+        person: ourClient,
+    });
+})
+
+app.post('/updatedemande', (req, res) => {
+    const id = req.body.demandeid;
+    Demande.findById(id)
+        .then(result => {
+            res.render('updatedemande', {
+                demande: result,
+                person: ourClient,
+            })
+        })
+        .catch(err => {
+            console.log(err);
+        })
+})
+
+
+app.post('/updateselecteddemande', (req, res) => {
+
+
+    let demande = req.body;
+    Demande.findByIdAndUpdate(demande.demandeId,
+        {  
+            type: demande.demandeType,
+            etudiant: demande.etudiant,
+            professeur: "Rahhal Erratahi",
+            module: "__",
+            message: demande.demandeMessage + "\n Modification de la période de réservation * : \n De : " + demande.date1 + "\n A : " + demande.date2,
+            etat: "en attente"
+        },
+        async (err, docs) => {
+            if (err) {
+                console.log(err)
+            } else {
+                console.log("Updated demande : ", docs);
+                res.redirect('listedemandes')
+            }
+        })
+})
+
 app.get('*', (req, res) => {
     res.redirect('error')
 })

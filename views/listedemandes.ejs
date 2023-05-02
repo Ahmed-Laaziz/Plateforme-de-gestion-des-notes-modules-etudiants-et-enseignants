@@ -183,8 +183,8 @@
                       <b class="logo-icon">
                           <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                           <!-- Dark Logo icon -->
-                          <img src="static1/images/tri_logo.png" alt="homepage" class="dark-logo" style="width: 27%; height: 10%;"/>
-                          &nbsp;<span class="text-uppercase font-weight-bold" style="font-size:130% ;">ENSAJ</span><span style="font-size:130%;color: rgb(171, 196, 226);">TRI</span>&nbsp;<i class="fa-solid fa-seedling"></i>
+                          
+                          &nbsp;<span class="text-uppercase font-weight-bold" style="font-size:130% ;">ENSAJ</span><span style="font-size:130%;color: rgb(171, 196, 226);"></span>&nbsp;<i class="fa-solid fa-seedling"></i>
                       </b>
                       
                       <!--End Logo icon -->
@@ -278,6 +278,10 @@
                                   <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                           href="./listedemandes" aria-expanded="false"><i class="fa-solid fa-list-check"></i><span
                               class="hide-menu">&nbsp;&nbsp;&nbsp;Liste des demandes</span></a>
+
+                              <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="./cimasi" aria-expanded="false"><i class="fa-solid fa-eye"></i><span class="hide-menu">&nbsp;&nbsp;&nbsp;CIMASI</span></a>
+                            </li>
                                   <% break;
                           
                           case 'Cordinateur' : %>
@@ -474,6 +478,12 @@
                                             <input type="hidden" name = "decision" value = "non approuvée">
                                             <button  class="btn btn-outline-danger">non approuvée</button>
                                         </form>
+                                    </td>
+                                    <td style="width: 1%;">
+                                      <form action="/updatedemande" method="post">
+                                        <input type="hidden" name = "demandeid" value = "<%= demande._id %>" >
+                                        <button href="#" class="settings" title="Settings" data-toggle="tooltip" style="border: white;"><i class="fa-solid fa-pen" style="color:rgb(232, 196, 87) ;"></i></button>
+                                      </form>
                                     </td>
                                 </tr>
                                 <% } %>

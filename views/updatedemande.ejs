@@ -135,7 +135,7 @@
                         <!-- User Profile-->
                         <% switch (ourClient.role) {
                             case 'etudiant' : %>
-                            <li class="sidebar-item"> <a class="active waves-effect waves-dark sidebar-link"
+                            <li class="sidebar-item"> <a class="waves-effect waves-dark sidebar-link"
                                 href="./index" aria-expanded="false">
                                 <i class="fa-regular fa-user"></i> <span class="hide-menu">&nbsp;&nbsp;&nbsp;Mon Profile</span></a>
                             </li>
@@ -147,7 +147,7 @@
                             <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="./suivredemande" aria-expanded="false"><i class="fa-solid fa-file-circle-question"></i><span class="hide-menu">&nbsp;&nbsp;&nbsp;Suivre demandes</span></a></li>
 
-                                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                <li class="sidebar-item"> <a class="active sidebar-link waves-effect waves-dark sidebar-link"
                                 href="./cimasi" aria-expanded="false"><i class="fa-solid fa-eye"></i><span class="hide-menu">&nbsp;&nbsp;&nbsp;CIMASI</span></a>
                             </li>
 
@@ -166,10 +166,6 @@
                                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                             href="./listedemandes" aria-expanded="false"><i class="fa-solid fa-list-check"></i><span
                                 class="hide-menu">&nbsp;&nbsp;&nbsp;Liste des demandes</span></a>
-
-                                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="./cimasi" aria-expanded="false"><i class="fa-solid fa-eye"></i><span class="hide-menu">&nbsp;&nbsp;&nbsp;CIMASI</span></a>
-                            </li>
                                     <% break;
                             
                             case 'Cordinateur' : %>
@@ -221,12 +217,12 @@
             <div class="page-breadcrumb">
                 <div class="row align-items-center">
                     <div class="col-md-6 col-8 align-self-center">
-                        <h3 class="page-title mb-0 p-0">Profile</h3>
+                        <h3 class="page-title mb-0 p-0">Rendez-vous</h3>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="./">Login&nbsp;&nbsp;</a></li>
-                                    <i class="fa-solid fa-angle-right"></i><li class="breadcrumb-item active" aria-current="page">&nbsp;&nbsp;Profile</li>
+                                    <i class="fa-solid fa-angle-right"></i><li class="breadcrumb-item active" aria-current="page">&nbsp;&nbsp;CIMASI</li>
                                 </ol>
                             </nav>
                         </div>
@@ -268,28 +264,12 @@
                     <div class="col-lg-4 col-xlg-3 col-md-5">
                         <div class="card">
                             <div class="card-body profile-card">
-                                <center class="mt-4"> <img src="static/uploads/images/<%= person.image %>"
-                                        class="rounded-circle" width="150" />
-                                    <h4 class="card-title mt-2"><%= person.prenom + " " + person.nom %> </h4>
-                                    <h6 class="card-subtitle"><%= person.role %>  a l'école nationale des sciences appliquées d'el Jadida</h6>
+                                <center class="mt-4"> <img src="static/uploads/images/cimasi.jpg"
+                                         width="300" />
+                                    <h4 class="card-title mt-2">CIMASI </h4>
+                                    <h6 class="card-subtitle">Centre international des matériaux avancés et systèmes intelligents</h6>
                                     
-                                    <div class="row text-center justify-content-center">
-                                        <div class="col-4">
-                                            <a href="javascript:void(0)" class="link">
-                                                <i class="icon-people" aria-hidden="true"></i>
-                                                <% if (person.role == "etudiant") { %>
-                                                    <span class="value-digit"><%= person.filiere %> </span>
-                                                 <% } else { %>
-                                                    <span class="value-digit"><%= person.departement %> </span>
-                                                <% } %>
-                                                
-                                            </a></div>
-                                        <div class="col-4">
-                                            <a href="javascript:void(0)" class="link">
-                                                <i class="icon-picture" aria-hidden="true"></i>
-                                                <span class="value-digit">R130178</span>
-                                            </a></div>
-                                    </div>
+                                    
                                 </center>
                             </div>
                         </div>
@@ -299,104 +279,47 @@
                     <div class="col-lg-8 col-xlg-9 col-md-7">
                         <div class="card">
                             <div class="card-body">
-                                <form class="form-horizontal form-material mx-2" action="/updateProfile" method="post" enctype="multipart/form-data">
+                                <form class="form-horizontal form-material mx-2" action="/updateselecteddemande" method="post">
                             
-                                    <input type="hidden"  name="userId" value="<%= person._id %>">
-                                    <input type="hidden"  name="userimg" value="<%= person.image %>">
+                                    <input type="hidden"  name="demandeId" value="<%= demande._id %>">
+                                    <input type="hidden"  name="demandeType" value="<%= demande.type %>">
+                                    <input type="hidden"  name="demandeMessage" value="<%= demande.message %>">
                                     <div class="form-group">
-                                        <label class="col-md-12 mb-0">Nom</label>
+                                        <label class="col-md-12 mb-0">Nom Complet : </label>
                                         <div class="col-md-12">
-                                            <input type="text" value="<%= person.nom %>"
+                                            <input type="text" disabled value="<%= demande.etudiant %>"
                                                 class="form-control ps-0 form-control-line" name="nom" required>
                                         </div>
                                     </div>
+                               
+                                    <h6>Période de réservation : </h6>
                                     <div class="form-group">
-                                        <label class="col-md-12 mb-0">Prenom</label>
+                                        <label class="col-md-12 mb-0">De : </label>
                                         <div class="col-md-12">
-                                            <input type="text" value="<%= person.prenom %>"
-                                                class="form-control ps-0 form-control-line" name="prenom" required>
-                                        </div>
-                                    </div>
-                                    <% if (person.role == "etudiant") { %>
-                                     
-                                    
-                                    <div class="form-group">
-                                        <label class="col-md-12 mb-0">Filiere</label>
-                                        <div class="col-md-12">
-                                            <input type="text" value="<%= person.filiere %>"
-                                                class="form-control ps-0 form-control-line" name = "filiere" required readonly="readonly">
-                                        </div>
-                                    </div>
-                                    
-                                    <% } else if (person.role == "Cordinateur") { %> 
-                                        <input type="hidden" name="" id="">
-                                    
-                                    <% } else { %>
-                                        <input type="hidden"  name="classes" value="<%= person.classes %>">
-                                        <div class="form-group">
-                                            <label class="col-md-12 mb-0">Departement</label>
-                                            <div class="col-md-12">
-                                                <input type="text" value="<%= person.departement %>"
-                                                    class="form-control ps-0 form-control-line" name = "departement" required>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="form-group">
-                                            <label class="col-md-12 mb-0">Classes associées</label>
-                                            <div class="col-md-12">
-                                                <input type="text" value="<%= person.classes %>"
-                                                    class="form-control ps-0 form-control-line" readonly="readonly">
-                                            </div>
-                                        </div>
-                                    <% } %>
-                                    <div class="form-group">
-                                        <label class="col-md-12 mb-0">Changer votre photo de profile</label>
-                                        <div class="form-group">
-                                            <input type="file" name = "image" value="<%= person.image %>"
-                                                >
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="example-email" class="col-md-12">Email</label>
-                                        <div class="col-md-12">
-                                            <input type="email" value="<%= person.email %>"
-                                                class="form-control ps-0 form-control-line" name="email" required
-                                                id="example-email" >
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12 mb-0">Mot de passe</label>
-                                        <div class="col-md-12">
-                                            <input type="password" name="password" required
+                                            <input type="date" name="date1" required
                                                 class="form-control ps-0 form-control-line" id = "id1">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12 mb-0">Confirmer le Mot de passe</label>
+                                        <label class="col-md-12 mb-0">A : </label>
                                         <div class="col-md-12">
-                                            <input type="password"  required
+                                            <input type="date"  name ="date2" required 
                                                 class="form-control ps-0 form-control-line" id = "id2">
                                         </div>
                                     </div>
+
+
                                     
-                                    <!-- <div class="form-group">
+
+                                    
+                                     <div class="form-group">
                                         <label class="col-md-12 mb-0">Message</label>
                                         <div class="col-md-12">
-                                            <textarea rows="5" class="form-control ps-0 form-control-line"></textarea>
+                                            <input type="text" disabled value="<%= demande.message %>"
+                                                class="form-control ps-0 form-control-line" name="nom" required>
                                         </div>
-                                    </div> -->
-                                    <!-- <div class="form-group">
-                                        <label class="col-sm-12">Select Country</label>
-                                        <div class="col-sm-12 border-bottom">
-                                            <select class="form-select shadow-none ps-0 border-0 form-control-line">
-                                                <option>London</option>
-                                                <option>India</option>
-                                                <option>Usa</option>
-                                                <option>Canada</option>
-                                                <option>Thailand</option>
-                                            </select>
-                                        </div>
-                                    </div> -->
+                                    </div>
+                                    
                                     <% if (person.role == "Cordinateur") { %>
                                         <div class="form-group">
                                         <div class="col-sm-12 d-flex">
@@ -406,7 +329,7 @@
                                     <% } else { %> 
                                     <div class="form-group">
                                         <div class="col-sm-12 d-flex">
-                                            <button class="btn btn-success mx-auto mx-md-0 text-white" id = "buttonId">Modifier le profile</button>
+                                            <button class="btn btn-success mx-auto mx-md-0 text-white" id = "buttonId">Confirmer</button>
                                         </div>
                                     </div>
                                     <% } %>
